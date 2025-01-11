@@ -4,13 +4,17 @@ import java.util.List;
 
 public class DistributionCenterResponse {
 
-    private List<String> distributionCenters;
+    private List<String> distribuicaoCentros;
 
-    public List<String> getDistributionCenters() {
-        return distributionCenters;
+    public DistributionCenterResponse(List<String> distribuicaoCentros) {
+        this.distribuicaoCentros = distribuicaoCentros;
     }
 
-    public void setDistributionCenters(List<String> distributionCenters) {
-        this.distributionCenters = distributionCenters;
+    public List<String> getDistribuicaoCentros() {
+        return distribuicaoCentros;
+    }
+
+    public void setDistribuicaoCentros(List<String> distribuicaoCentros) {
+        this.distribuicaoCentros = distribuicaoCentros;
     }
 }

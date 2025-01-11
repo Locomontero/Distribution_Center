@@ -11,6 +11,7 @@ com\ecommerce\repository\ItemPedidoRepository.class
 com\ecommerce\dto\ItemPedidoDTO.class
 com\ecommerce\controller\PedidoController.class
 com\ecommerce\repository\PedidoRepository.class
+com\ecommerce\controller\DistributionCenterMockController.class
 com\ecommerce\model\DistributionCenterResponse.class
 com\ecommerce\service\IPedidoService.class
 com\ecommerce\dto\DistributionCenterDTO.class

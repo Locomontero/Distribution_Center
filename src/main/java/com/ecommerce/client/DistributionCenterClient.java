@@ -12,7 +12,7 @@ public class DistributionCenterClient {
     private final RestTemplate restTemplate;
 
     public DistributionCenterResponse consultarCentroDistribuicao(String itemId) {
-        String url = "https://api.exemplo.com/distribuicao/" + itemId;  // Substitua pela URL correta da API
-        return restTemplate.getForObject(url, DistributionCenterResponse.class);
+        String url = "http://localhost:8080/distribuitioncenters?itemId=" + itemId; // URL mockada
+        return restTemplate.getForObject(url, DistributionCenterResponse.class); // Chama o mock da API
     }
 }
