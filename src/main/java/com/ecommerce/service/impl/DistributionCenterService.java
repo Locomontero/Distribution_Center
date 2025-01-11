@@ -13,7 +13,7 @@ public class DistributionCenterService implements IDistributionCenterService {
     private final DistributionCenterClient client;
 
     @Override
-    public DistributionCenterResponse consultarCentroDistribuicao(String itemId) {
-        return client.consultarCentroDistribuicao(itemId);
+    public DistributionCenterResponse requestDistributionCenter(String itemId) {
+        return client.requestDistributionCenter(itemId);
     }
 }

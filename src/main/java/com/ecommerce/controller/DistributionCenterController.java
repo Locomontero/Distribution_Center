@@ -16,7 +16,7 @@ public class DistributionCenterController {
     }
 
     @GetMapping("/distributioncenters")
-    public DistributionCenterResponse consultarCentroDistribuicao(@RequestParam String itemId) {
-        return service.consultarCentroDistribuicao(itemId);
+    public DistributionCenterResponse requestDistributionCenter(@RequestParam String itemId) {
+        return service.requestDistributionCenter(itemId);
     }
 }

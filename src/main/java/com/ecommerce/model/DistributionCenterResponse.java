@@ -1,20 +1,12 @@
 package com.ecommerce.model;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
 import java.util.List;
 
+@Data
+@AllArgsConstructor
 public class DistributionCenterResponse {
 
-    private List<String> distribuicaoCentros;
-
-    public DistributionCenterResponse(List<String> distribuicaoCentros) {
-        this.distribuicaoCentros = distribuicaoCentros;
-    }
-
-    public List<String> getDistribuicaoCentros() {
-        return distribuicaoCentros;
-    }
-
-    public void setDistribuicaoCentros(List<String> distribuicaoCentros) {
-        this.distribuicaoCentros = distribuicaoCentros;
-    }
+    private List<String> distributionCenters;
 }
