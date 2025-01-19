@@ -2,6 +2,7 @@ package com.ecommerce.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -17,19 +18,13 @@ public class DistributionCenter {
     private String name;
 
     @OneToMany(mappedBy = "distributionCenter")
-    private List<OrderItem> orderItems;
+    private List<Order> orders;
 
-
-    public DistributionCenter() {
+    public DistributionCenter(){
 
     }
 
     public DistributionCenter(Long id) {
         this.id = id;
     }
-
-    public Long getId() {
-        return id;
-    }
-
 }

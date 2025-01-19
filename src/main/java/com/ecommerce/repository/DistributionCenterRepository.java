@@ -6,6 +6,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.List;
 
 public interface DistributionCenterRepository extends JpaRepository<DistributionCenter, Long> {
-    List<DistributionCenter> findByOrderItems_ItemName(String itemName);
-
+    List<DistributionCenter> findByOrders_Items_ItemName(String itemName);
 }
