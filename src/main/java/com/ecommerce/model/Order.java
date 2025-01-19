@@ -3,6 +3,7 @@ package com.ecommerce.model;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import com.ecommerce.model.DistributionCenter;
 
 import javax.persistence.*;
 import java.util.List;
@@ -19,7 +20,7 @@ public class Order {
     private Long id;
 
     @OneToMany(mappedBy = "order", cascade = CascadeType.ALL)
-    private List<OrderItem> itemName;
+    private List<OrderItem> items;
 
     @ManyToOne
     @JoinColumn(name = "distribution_center_id")
@@ -33,12 +34,12 @@ public class Order {
         this.id = id;
     }
 
-    public List<OrderItem> getItemName() {
-        return itemName;
+    public List<OrderItem> getItems() {
+        return items;
     }
 
-    public void setItemName(List<OrderItem> itemName) {
-        this.itemName = itemName;
+    public void setItems(List<OrderItem> items) {
+        this.items = items;
     }
 
     public DistributionCenter getDistributionCenter() {

@@ -17,22 +17,16 @@ public class OrderItem {
     private Long id;
 
     private String itemName;
-
-    @ManyToOne
-    @JoinColumn(name = "distribution_center_id")
-    private DistributionCenter distributionCenter;
+    private Integer quantity;
 
     @ManyToOne
     @JoinColumn(name = "order_id")
     private Order order;
 
-    public Long getId() {
-        return id;
-    }
+    @ManyToOne
+    @JoinColumn(name = "distribution_center_id")
+    private DistributionCenter distributionCenter;
 
-    public void setId(Long id) {
-        this.id = id;
-    }
 
     public String getItemName() {
         return itemName;
@@ -42,19 +36,19 @@ public class OrderItem {
         this.itemName = itemName;
     }
 
-    public DistributionCenter getDistributionCenter() {
-        return distributionCenter;
+    public Integer getQuantity() {
+        return quantity;
     }
 
-    public void setDistributionCenter(DistributionCenter distributionCenter) {
-        this.distributionCenter = distributionCenter;
-    }
-
-    public Order getOrder() {
-        return order;
+    public void setQuantity(Integer quantity) {
+        this.quantity = quantity;
     }
 
     public void setOrder(Order order) {
         this.order = order;
+    }
+
+    public void setDistributionCenter(DistributionCenter distributionCenter) {
+        this.distributionCenter = distributionCenter;
     }
 }

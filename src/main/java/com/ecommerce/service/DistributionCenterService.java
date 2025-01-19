@@ -15,8 +15,13 @@ public class DistributionCenterService {
     private DistributionCenterRepository distributionCenterRepository;
 
     public List<DistributionCenter> findByItemNameInOrders(String itemName) {
-        return Optional.ofNullable(distributionCenterRepository.findByOrderItems_ItemName(itemName))
+        return Optional.ofNullable(distributionCenterRepository.findByOrders_Items_ItemName(itemName))
                 .filter(list -> !list.isEmpty())
                 .orElseGet(List::of);
+    }
+
+    public DistributionCenter findById(Long id) {
+        return distributionCenterRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("DistributionCenter not found with ID: " + id));
     }
 }
