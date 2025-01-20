@@ -1,5 +1,6 @@
 package com.ecommerce.model;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
@@ -17,7 +18,8 @@ public class DistributionCenter {
 
     private String name;
 
-    @OneToMany(mappedBy = "distributionCenter")
+    @OneToMany(mappedBy = "distributionCenter",fetch = FetchType.EAGER)
+    @JsonManagedReference
     private List<Order> orders;
 
     public DistributionCenter(){
@@ -26,5 +28,29 @@ public class DistributionCenter {
 
     public DistributionCenter(Long id) {
         this.id = id;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public List<Order> getOrders() {
+        return orders;
+    }
+
+    public void setOrders(List<Order> orders) {
+        this.orders = orders;
     }
 }
