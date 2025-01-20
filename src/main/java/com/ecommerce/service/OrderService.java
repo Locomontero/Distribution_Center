@@ -1,5 +1,6 @@
 package com.ecommerce.service;
 
+import com.ecommerce.exception.CustomException;
 import com.ecommerce.model.Order;
 import com.ecommerce.model.OrderItem;
 import com.ecommerce.model.DistributionCenter;
@@ -24,7 +25,10 @@ public class OrderService {
         Order order = new Order();
         order.setId(orderDTO.getId());
 
-        DistributionCenter distributionCenter = new DistributionCenter(orderDTO.getDistributionCenterId());
+        DistributionCenter distributionCenter = distributionCenterService.findById(orderDTO.getDistributionCenterId());
+        if (distributionCenter == null) {
+            throw new CustomException(404, "Distribution Center not found with ID: " + orderDTO.getDistributionCenterId());
+        }
         order.setDistributionCenter(distributionCenter);
 
         List<OrderItem> items = orderDTO.getItems().stream()
@@ -39,7 +43,6 @@ public class OrderService {
                 .collect(Collectors.toList());
 
         order.setItems(items);
-
         return order;
     }
 
@@ -51,7 +54,7 @@ public class OrderService {
                 .sum();
 
         if (totalItems > 100) {
-            throw new IllegalArgumentException("O pedido não pode conter mais de 100 itens.");
+            throw new CustomException(400, "Orders can not have more than 100 items.");
         }
 
         return orderRepository.save(order);
@@ -59,6 +62,6 @@ public class OrderService {
 
     public Order getOrderById(Long id) {
         return orderRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Order not found"));
+                .orElseThrow(() -> new CustomException(404, "Order not found with ID: " + id));
     }
 }

@@ -1,11 +1,13 @@
 package com.ecommerce.controller;
 
 import com.ecommerce.dto.OrderDTO;
+import com.ecommerce.exception.CustomException;
 import com.ecommerce.model.DistributionCenter;
 import com.ecommerce.model.Order;
 import com.ecommerce.service.OrderService;
 import com.ecommerce.service.DistributionCenterService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -39,6 +41,11 @@ public class OrderController {
     @GetMapping("/distribution-centers/{id}")
     public DistributionCenter getDistributionCenter(@PathVariable Long id) {
         return distributionCenterService.findById(id);
+    }
+
+    @ExceptionHandler(CustomException.class)
+    public ResponseEntity<Object> handleCustomException(CustomException ex) {
+        return ResponseEntity.status(ex.getStatusCode()).body(ex.getMessage());
     }
 }
 
