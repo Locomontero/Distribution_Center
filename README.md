@@ -1,4 +1,5 @@
 # API Центров Распределения
+![Arquitetura da API](image/distribution_management_diagram.png)
 
 Этот проект представляет собой бэкенд API на Java, разработанный с использованием **Spring Boot**, **Maven**, **База данных H2**, **Lombok** и включает юнит-тесты. Цель API — обрабатывать заказы и определять, какой центр распределения (ЦР) должен быть использован для отправки каждого товара на основе информации, предоставленной API центров распределения.
 
@@ -39,8 +40,7 @@
     { "itemId": "def", "quantity": 1 }
   ]
 }
-
-ENGLISH
+```
 
 # Distribution Center API
 
@@ -83,3 +83,4 @@ Develop a solution that processes orders and determines which distribution cente
     { "itemId": "def", "quantity": 1 }
   ]
 }
+```
